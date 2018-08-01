@@ -47,12 +47,18 @@ int main(){
 				double PI;
 				PI = M_PI;
 				double lado1,lado2,lado3,angulo1,angulo2,angulo3,s,area;
-      				cout<<"Ingrese primera dimension del trinagulo"<<endl;
+      				cout<<"Ingrese primera dimension del triangulo"<<endl;
 				cin>>lado1;
 				cout<<"Ingrese segunda dimension del triangulo"<<endl;
                                 cin>>lado2;
-				cout<<"Ingrese tercera dimension del trinagulo"<<endl;
+				cout<<"Ingrese tercera dimension del triangulo"<<endl;
                                 cin>>lado3;
+				if((lado1*lado1==lado2*lado2+lado3*lado3)||(lado2*lado2==lado1*lado1+lado3*lado3)||
+						(lado3*lado3==lado2*lado2+lado1*lado1)){
+					cout<<"El triangulo es recto"<<endl;
+				}else{
+					cout<<"El triangulo no es recto"<<endl;
+				}
 				angulo1 = acos(((lado2*lado2)+(lado3*lado3)-(lado1*lado1))/(2*lado2*lado3))* 180.0/PI;
 				angulo2 = acos(((lado1*lado1)+(lado3*lado3)-(lado2*lado2))/(2*lado1*lado3))* 180.0/PI;
 				angulo3 = acos(((lado1*lado1)+(lado2*lado2)-(lado3*lado3))/(2*lado1*lado2))* 180.0/PI;
@@ -63,15 +69,33 @@ int main(){
 				s = (lado1+lado2+lado3)/2;
 				area = sqrt(s*(s-lado1)*(s-lado2)*(s-lado3));
 				cout<<"Area del Triangulo: "<<area<<endl;
-				if(angulo1==90.0||angulo2==90.0||angulo3==90.0){
-					cout<<"EL triangulo es rectangulo"<<endl;
-				}
       				break;
 			case 'c'  :
-				cout<<"3"<<endl;
+				int num,contador2;	
+				contador2=0;
+				cout<<"Ingrese numero: "<<endl;
+				cin>>num;
+				for(int i=1;i<num;i++){
+					if(num%i==0){
+						if(i%2==0){
+                                		}else{
+                                        	if(i+1<num){
+                                        		cout<<"(("<<num<<"+"<<i<<")/"<<i<<") + ";
+							contador2+=(num+i)/i; 
+                                        	}else{
+                                        		cout<<"(("<<num<<"+"<<i<<")/"<<i<<") = ";
+							contador2+=(num+i)/i;
+                                        	}
+                                		}
+                               		 }	
+
+				}
+				 cout<<"(("<<num<<"+"<<num<<")/"<<num<<")=";
+                                 contador2+=(num+num)/num;
+				 cout<<contador2<<endl;
+
 				break;
 			case 'd'  :
-				cout<<"4"<<endl;
 				resp='n';
 				break;
    			default : 
