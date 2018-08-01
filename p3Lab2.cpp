@@ -5,6 +5,16 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+bool primo(int num){
+bool verificar = false;
+        for(int i=2;i<num;i++ ){
+                if(num%i==0){
+                verificar=true;
+                }
+        }
+        return verificar;
+
+}
 int main(){
 	char resp='s';
 	while (resp=='s'){
@@ -77,7 +87,7 @@ int main(){
 				cin>>num;
 				for(int i=1;i<num;i++){
 					if(num%i==0){
-						if(i%2==0){
+						if(primo((num+i)/i)){
                                 		}else{
                                         	if(i+1<num){
                                         		cout<<"(("<<num<<"+"<<i<<")/"<<i<<") + ";
@@ -106,3 +116,4 @@ int main(){
 
 	return 0;
 }
+
