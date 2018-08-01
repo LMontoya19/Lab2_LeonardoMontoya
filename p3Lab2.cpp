@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -43,6 +44,8 @@ int main(){
 				}
       				break;
    			case 'b'  :
+				double PI;
+				PI = M_PI;
 				double lado1,lado2,lado3,angulo1,angulo2,angulo3,s,area;
       				cout<<"Ingrese primera dimension del trinagulo"<<endl;
 				cin>>lado1;
@@ -50,10 +53,19 @@ int main(){
                                 cin>>lado2;
 				cout<<"Ingrese tercera dimension del trinagulo"<<endl;
                                 cin>>lado3;
-				angulo1 = acos(((lado2*lado2)+(lado3*lado3)-(lado1*lado1))/(2*lado2*lado3));
-				angulo2 = acos(((lado1*lado1)+(lado3*lado3)-(lado2*lado2))/(2*lado1*lado3));
-				angulo3 = acos(((lado1*lado1)+(lado2*lado2)-(lado3*lado3))/(2*lado1*lado2));
-				
+				angulo1 = acos(((lado2*lado2)+(lado3*lado3)-(lado1*lado1))/(2*lado2*lado3))* 180.0/PI;
+				angulo2 = acos(((lado1*lado1)+(lado3*lado3)-(lado2*lado2))/(2*lado1*lado3))* 180.0/PI;
+				angulo3 = acos(((lado1*lado1)+(lado2*lado2)-(lado3*lado3))/(2*lado1*lado2))* 180.0/PI;
+				cout<<"Medida de angulos:"<<endl;
+				cout<<" *"<<angulo1<<endl;
+				cout<<" *"<<angulo2<<endl;
+				cout<<" *"<<angulo3<<endl;
+				s = (lado1+lado2+lado3)/2;
+				area = sqrt(s*(s-lado1)*(s-lado2)*(s-lado3));
+				cout<<"Area del Triangulo: "<<area<<endl;
+				if(angulo1==90.0||angulo2==90.0||angulo3==90.0){
+					cout<<"EL triangulo es rectangulo"<<endl;
+				}
       				break;
 			case 'c'  :
 				cout<<"3"<<endl;
